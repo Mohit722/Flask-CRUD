@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Crud</title>
+</head>
+<body>
+<h3>Form Add Information</h3>
+<form action="/" method="POST">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>College Id</td>
+            <td>:</td>
+            <td><input type="text" name="nim"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Save</button></td>
+        </tr>
+    </table>
+</form>
+
+<h3>Data Info</h3>
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>College Id</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    {% for no, x in data %}
+        <tr>
+            <td>{{ no }}</td>
+            <td>{{ x.nim }}</td>
+            <td>{{ x.name }}</td>
+            <td><a href="form-update/{{ x.id }}">Edit</a> | <a href="delete/{{ x.id }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
